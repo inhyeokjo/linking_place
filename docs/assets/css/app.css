@@ -5,6 +5,19 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /* line 1, node_modules/bootstrap/scss/_root.scss */
+a:link {
+  color : black;
+}
+a:visited {
+  color : black;
+}
+a:hover {
+  color : black;
+}
+a:active {
+  color : black;
+}
+
 :root {
   --blue: #5b53ec;
   --indigo: #6610f2;
