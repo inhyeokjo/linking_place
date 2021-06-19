@@ -1,3 +1,33 @@
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.category_img{
+  width: 110px;
+  height: 110px;
+  font-weight: 550;
+  margin-left: 30px;
+  margin-right: 45px;
+}
+.category_name{
+  font-weight: 600;
+  font-size: 1rem;
+}
+.navbar-nav{
+  align-items: center;
+  vertical-align: center;
+  margin-left: 80px;
+}
+.split-line{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  size: 80px;
+}
+.row{
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
 /* line 1, src/assets/scss/theme.scss */
 body {
   padding-top: 70px; }
@@ -43,11 +73,15 @@ footer.footer {
 
 /* line 31, src/assets/scss/theme.scss */
 .nav-link, .dropdown-item {
-  font-weight: 700; }
+  font-weight: 600;
+ }
+ 
 
 /* line 32, src/assets/scss/theme.scss */
 .navbar {
-  padding: 0.5rem 2rem; }
+  padding: 0.5rem 2rem;
+  align-items: center;
+ }
 
 /* line 34, src/assets/scss/theme.scss */
 .overlay {
