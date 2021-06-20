@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Linking Space</title>
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+    <link rel="stylesheet" href="../../static/css/app.css">
+    <link rel="stylesheet" href="../../static/css/theme.css">
+	<link rel="shortcut icon" href="../../static/img/favicon.ico">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <a class="navbar-brand font-weight-bolder mr-3" href="main.html"><img src="../../static/img/logo.png" width="150", height="50"></a>
+    <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsDefault">
+    	<ul class="navbar-nav ml-auto align-items-center">
+    		<li class="nav-item">
+    		<a class="nav-link active" href="seuser/login">{{ login }}</a>
+    		</li>
+    		<li class="nav-item">
+    		<a class="nav-link" href="seuser/register">{{ register }}</a>
+			<a class="nav-link" href="seuser/login">{{ logout }}</a>
+    	</ul>
+    </div>
+    </nav>    
+    <main role="main">
+        
+    
+    <section class="mt-4 mb-5">
+    <div class="container mb-4">
+    	<h1 class="font-weight-bold title">어떤 공간을 찾고 계신가요?</h1>
+    	<div class="row">
+    		<nav class="navbar navbar-expand-lg navbar-light bg-white pl-2 pr-2">
+    		<button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExplore" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarsExplore">
+    			<ul class="navbar-nav">
+                    <a class="category_img" href="category.html"><img src="../../static/img/study.png"style="display:block;">스터디룸</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/sing.png"style="display:block;">보컬 연습실</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/cook.png"style="display:block;">쿠킹 스튜디오</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/dance.png" style="display:block;">연습실</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/meeting.png"style="display:block;">회의실</a>
+    			</ul>
+    		</div>
+    		</nav>
+    	</div>
+        <div class="row">
+    		<nav class="navbar navbar-expand-lg navbar-light bg-white pl-2 pr-2">
+    		<button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExplore" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarsExplore">
+    			<ul class="navbar-nav">
+                    <a class="category_img" href="main.html"><img src="../../static/img/gym.png"style="display:block;">운동시설</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/camera.png"style="display:block;">촬영 스튜디오</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/cafe.png"style="display:block;">카페</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/concert.png" style="display:block;">공연장</a>
+                    <a class="category_img" href="main.html"><img src="../../static/img/lecture.png"style="display:block;">강의실</a>
+    			</ul>
+    		</div>
+    		</nav>
+    	</div>
+    </div>
+    <p><hr class="split-line"></p>
+
+    <div class="container-fluid">
+        <h1 class="font-weight-bold title">이런 공간은 어떠신가요?</h1>
+    	<div class="row">
+				<div class="card card-pin">
+					<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+						<div class="overlay">
+								<h3 class="card-title title">{{ name1 }}</h3>
+							<br>
+								<p style="color : white;text-align:center"> {{desc1}} </p>
+							<div class="more">
+							<a href="post.html">
+							<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+						</div>
+					</div>
+				</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name2 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc2 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name3 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc3 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name4 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc4 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name5 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc5 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1483190656465-2c49e54d29f3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7c4d831daffc28f6ce144ae9e44072e2&auto=format&fit=crop&w=500&q=60" alt="Card image">
+    				<div class="overlay">
+      						<h3 class="card-title title">{{ name6 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc6 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name7 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc7 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name8 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc8 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name9 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc9 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name10 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc10 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+				<div class="card card-pin">
+    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+  					<div class="overlay">
+      						<h3 class="card-title title">{{ name11 }}</h3>
+							<br>
+      						<p style="color : white;text-align:center"> {{ desc11 }} </p>
+    						<div class="more">
+							<a href="post.html">
+    						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
+    					</div>
+    				</div>
+    			</div>
+
+    		</div>
+    	</div>
+    </div>
+    </section>
+        
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/theme.js"></script>
+    
+    <footer class="footer pt-5 pb-5 text-center">
+        
+    <div class="container">
+        
+          <div class="socials-media">
+    
+            <ul class="list-unstyled">
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-facebook"></i></a></li>
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-twitter"></i></a></li>
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-instagram"></i></a></li>
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-google-plus"></i></a></li>
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-behance"></i></a></li>
+              <li class="d-inline-block ml-1 mr-1"><a href="#" class="text-dark"><i class="fa fa-dribbble"></i></a></li>
+            </ul>
+    
+          </div>
+        </div>
+        
+    </footer>    
+</body>
+    
+</html>

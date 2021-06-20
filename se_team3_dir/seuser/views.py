@@ -1,17 +1,20 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password, check_password  # 비밀번호를 암호화할 때 사용하는 함수
 from .models import Seuser
 
+
 def login(request):
+
     if request.method == "GET":
         return render(request, 'login.html')
     elif request.method == "POST":
+        
         user_id = request.POST.get('user_id', None)
         password = request.POST.get('password', None)
 
         res_data = {}
-    
+
         try:
             if not (user_id and password):
                 res_data['error'] = "모든 값을 입력해야 합니다."
@@ -19,15 +22,16 @@ def login(request):
                 seuser = Seuser.objects.get(user_id=user_id)
                 if check_password(password, seuser.password):
                     # 비밀번호가 일치하는 경우
-                    # 세션
-                    pass
+                    print("로그인 성공")
+                    request.session['user_id'] = seuser.user_id
+                    return redirect('/')
                 else:
                     #비밀번호가 틀린 경우
                     res_data['error'] = "비밀번호가 틀렸습니다."
         except:
-            res_data['error'] = "존재하지 않는 아이디입니다." 
+            res_data['error'] = "!!존재하지 않는 아이디입니다.!!" 
 
-    return render(request, 'login.html', res_data)
+        return render(request, 'login.html', res_data)
 
 # Create your views here.
 def register(request):
@@ -59,10 +63,6 @@ def register(request):
         if not (user_name and user_id and password and re_password and user_email and user_sex and user_address and user_age):
             res_data['error'] = '모든 값을 입력해야 합니다.'
 
-        
-
-        
-
         else:    
             seuser = Seuser (
                 user_name=user_name,
@@ -76,6 +76,7 @@ def register(request):
             )
 
             seuser.save()
+            return redirect('/')
        
         return render(request, 'register.html', res_data)
 
