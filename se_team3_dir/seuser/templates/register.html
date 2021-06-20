@@ -19,6 +19,11 @@
     </head>
     <body>
         <div class="container">
+            <div class="d-flex justify-content-center links", style="position: relative; left:500px; top:80px;">
+                <a href="../">
+                    <img src="18362309891600040225-512.png" width=30 height=30>
+                </a>
+            </div>
             <div class="row mt-5">
                 <div class="col-12 text center">
                     <h1>회원가입</h1>
@@ -36,12 +41,16 @@
                         <form method="POST", action=".">
                             {% csrf_token %}
                         <div class="form-group">
-                            <label for="username">사용자 이름</label>
-                            <input type="text" class="form-control" id="username"  placeholder="사용자 이름", name="username">
+                            <label for="user_name">사용자 이름</label>
+                            <input type="text" class="form-control" id="user_name"  placeholder="사용자 이름", name="user_name">
                         </div>
                         <div class="form-group">
-                            <label for="useremail">사용자 이메일</label>
-                            <input type="email" class="form-control" id="useremail"  placeholder="사용자 이메일", name="useremail">
+                            <label for="user_name">사용자 아이디</label>
+                            <input type="text" class="form-control" id="user_id"  placeholder="사용자 이름", name="user_id">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_email">사용자 이메일</label>
+                            <input type="user_email" class="form-control" id="user_email"  placeholder="사용자 이메일", name="user_email">
                         </div>
                         <div class="form-group">
                             <label for="password">비밀번호</label>
@@ -49,7 +58,23 @@
                         </div>
                         <div class="form-group">
                             <label for="re-password">비밀번호 확인</label>
-                            <input type="re-password" class="form-control" id="re-password" placeholder="비밀번호 확인", name="re-password">
+                            <input type="password" class="form-control" id="re-password" placeholder="비밀번호 확인", name="re-password">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_sex">사용자 성별</label>
+                            <input type="user_sex" class="form-control" id="user_sex" placeholder="사용자 성별", name="user_sex">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_age">사용자 나이</label>
+                            <input type="user_age" class="form-control" id="user_age" placeholder="사용자 성별", name="user_age">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_address">사용자 주소</label>
+                            <input type="user_address" class="form-control" id="user_address" placeholder="사용자 주소", name="user_address">
+                        </div>
+                        <div class="form-group">
+                            <label for="user_interest">사용자 관심사</label>
+                            <input type="user_interest" class="form-control" id="user_interest" placeholder="사용자 관심사", name="user_interest">
                         </div>
                         <button type="submit" class="btn btn-primary">등록</button>
                         </form>

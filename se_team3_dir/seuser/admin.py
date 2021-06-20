@@ -4,7 +4,7 @@ from .models import Seuser
 # Register your models here.
 
 class SeuserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'password']
+    list_display = ['user_name', 'password']
 
 
 admin.site.register(Seuser, SeuserAdmin)
