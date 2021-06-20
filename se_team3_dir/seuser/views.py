@@ -79,10 +79,3 @@ def register(request):
        
         return render(request, 'register.html', res_data)
 
-def main_frame(request):
-    if request.method == "Get":
-        return render(request, 'mainframe.html')
-    
-    if request.method == "POST":
-        
-        return

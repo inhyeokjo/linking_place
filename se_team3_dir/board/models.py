@@ -16,7 +16,7 @@ class Place(models.Model):
         verbose_name_plural = '링킹 스페이스 장소'
 
     def __str__(self):
-        return self.user.user_name
+        return self.place_name
 
 
 class Reservation(models.Model):
@@ -26,7 +26,7 @@ class Reservation(models.Model):
     payment_info = models.CharField(max_length=1000)
 
     def __str__(self):
-        return self.user.user_name
+        return self.reservation_time
     
     class Meta:
         db_table = 'linking_space_reservations'
@@ -47,5 +47,5 @@ class Review(models.Model):
         verbose_name_plural = '링킹 스페이스 리뷰'
 
     def __str__(self):
-        return self.user.user_name
+        return self.review_text
 
