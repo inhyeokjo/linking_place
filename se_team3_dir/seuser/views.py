@@ -5,8 +5,15 @@ from .models import Seuser
 
 
 def login(request):
+    
 
     if request.method == "GET":
+        try:
+            if request.session['user_id']:
+                del request.session['user_id']
+                return redirect('/')
+        except:
+            pass
         return render(request, 'login.html')
     elif request.method == "POST":
         
