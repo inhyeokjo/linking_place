@@ -22,3 +22,22 @@
 구태희
 
 [문서화 페이지로 이동](https://rawcdn.githack.com/inhyeokjo/linking_place/master/se_team3_dir/docs/build/html/index.html)
+
+## 프로그램 실행하기
+
+1. 필요한 라이브러리 설치하기
+------------------------------
+
+    pip install -r requitements.txt
+
+해당 코드를 실행해서 필요한 라이브러리를 다운받습니다.
+
+2. 서버 실행하기(runserver)
+----------------------------
+
+    cd linking_place/se_team3_dir
+    python3 manage.py runserver
+
+해당 코드를 실행한 뒤에 
+URL : 127.0.0.1:8000
+해당 URL으로 접속해서 서비스를 사용해보세요!
