@@ -2,7 +2,7 @@
 ## 링킹 플레이스는 공간 대여 웹서비스입니다.
 
 <br>
-<img src=".\se_team3_dir\docs\build\html\_images\runserver_img.png">
+![Uploading image.png…]
 
 <br>
 다양한 콘텐츠의 증가와 코로나 19로 인한 오프라인 만남에 대한 요구가 증가하고 있습니다. 
