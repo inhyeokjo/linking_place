@@ -58,7 +58,7 @@
 1. 필요한 라이브러리 설치하기
 ------------------------------
     cd linking_place
-    pip install -r requitements.txt
+    pip install -r requirements.txt
 
 해당 코드를 실행해서 필요한 라이브러리를 다운받습니다.
 
