@@ -21,4 +21,4 @@
 조인혁
 구태희
 
-[문서화 페이지로 이동](https://github.com/user/repo/blob/branch/html.md)
+[문서화 페이지로 이동](https://github.com/inhyeokjo/linking_place/blob/master/se_team3_dir/docs/build/html.md)
