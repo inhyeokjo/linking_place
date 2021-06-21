@@ -176,9 +176,53 @@
 <h1>seuser 패키지<a class="headerlink" href="#seuser" title="이 표제에 대한 퍼머링크">¶</a></h1>
 <div class="section" id="seuser-admin-module">
 <h2>seuser.admin module<a class="headerlink" href="#seuser-admin-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>사용자 정보**에 대한 관리자 모듈입니다.</p></li>
+<li><p>사용자 정보에 대한 <a href="#id3"><span class="problematic" id="id4">**</span></a>관리자 페이지**로 기본적으로 사용자 이름, 사용자 아이디, 패스워드를 볼 수 있도록 설정합니다.</p></li>
+</ul>
+<p>SeuserAdmin 클래스:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SeuserAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+   <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Seuser</span><span class="p">,</span> <span class="n">SeuserAdmin</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>새로운 라인</p></li>
+</ul>
 </div>
 <div class="section" id="seuser-models-module">
 <h2>seuser.models module<a class="headerlink" href="#seuser-models-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>seuser 어플리케이션에 필요한 데이터베이스를 클래스화하는 모듈입니다.</p></li>
+<li><p>사용자에 대한 데이터베이스를 djangodb 라이브러리를 이용하여 구현</p></li>
+<li><p>(djangodb : 클래스를 생성하면 sqlite3를 이용한 데이터베이스 구축을 자동화해주는 라이브러리)</p></li>
+</ul>
+<p>Seuser 클래스 (사용자 클래스):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Seuser</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">      사용자 이름, 사용자 아이디, 사용자 이메일, 비밀번호,회원 가입 시간,</span>
+<span class="sd">      사용자 성별, 사용자 나이, 사용자 주소, 사용자 관심사</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">user_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">&#39;사용자명&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;anonymous&quot;</span><span class="p">)</span>
+   <span class="n">user_id</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;사용자 아이디&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;nouser&quot;</span><span class="p">)</span>
+   <span class="n">user_email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">&#39;사용자이메일&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;email@none.com&quot;</span><span class="p">)</span>
+   <span class="n">password</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;비밀번호&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+   <span class="n">registered_dttm</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s1">&#39;등록시간&#39;</span><span class="p">)</span>
+   <span class="n">user_sex</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;성별&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;남자&quot;</span><span class="p">)</span>
+   <span class="n">user_age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;나이&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+   <span class="n">user_address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;주소&quot;</span><span class="p">)</span>
+   <span class="n">user_interest</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose_name</span><span class="o">=</span><span class="s2">&quot;사용자 관심사&quot;</span><span class="p">)</span>
+
+   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_name</span>
+
+   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;linking_space_seuser&#39;</span>
+      <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 사용자&#39;</span>
+      <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 사용자&#39;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="seuser-urls-module">
 <h2>seuser.urls module<a class="headerlink" href="#seuser-urls-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
