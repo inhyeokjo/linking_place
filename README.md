@@ -22,12 +22,16 @@
 <p>조인혁</p>
 <p>구태희</p>
 
+
 ## 소스코드에 대한 문서화를 파이썬의 Sphinx 패키지를 이용하여 수행하였습니다.
 [문서화 페이지로 이동](https://rawcdn.githack.com/inhyeokjo/linking_place/master/se_team3_dir/docs/build/html/index.html)
 
 ## 버전관리 및 협업
 버전 관리는 git과 github를 통해서 사용하였고, 현재 1.0 버전입니다.
 팀원간에 역할을 분담하여 효율적인 협업 체계를 구축하였고, 구현된 기능은 git을 통해 팀원과 공유하였습니다.
+
+## 테스팅 (검사)
+*** 작성 예정***
 
 ## 사용한 프레임워크
 <p>링킹 스페이스는 Django로 구현된 웹서비스입니다.</p>
