@@ -1,0 +1,45 @@
+seuser 패키지
+==============
+
+seuser.admin module
+-------------------
+
+.. automodule:: seuser.admin
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.models module
+--------------------
+
+.. automodule:: seuser.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+seuser.urls module
+------------------
+
+.. automodule:: seuser.urls
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.views module
+-------------------
+
+.. automodule:: seuser.views
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+seuser.tests module
+-------------------
+
+.. automodule:: seuser.tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

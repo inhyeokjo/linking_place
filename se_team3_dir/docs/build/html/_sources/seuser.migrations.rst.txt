@@ -1,0 +1,101 @@
+seuser.migrations package
+=========================
+
+Submodules
+----------
+
+seuser.migrations.0001\_initial module
+--------------------------------------
+
+.. automodule:: seuser.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0002\_alter\_seuser\_username module
+------------------------------------------------------
+
+.. automodule:: seuser.migrations.0002_alter_seuser_username
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0003\_alter\_seuser\_username module
+------------------------------------------------------
+
+.. automodule:: seuser.migrations.0003_alter_seuser_username
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0004\_alter\_seuser\_options module
+-----------------------------------------------------
+
+.. automodule:: seuser.migrations.0004_alter_seuser_options
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0005\_seuser\_useremail module
+------------------------------------------------
+
+.. automodule:: seuser.migrations.0005_seuser_useremail
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0006\_auto\_20210619\_0615 module
+---------------------------------------------------
+
+.. automodule:: seuser.migrations.0006_auto_20210619_0615
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0007\_alter\_seuser\_user\_name module
+--------------------------------------------------------
+
+.. automodule:: seuser.migrations.0007_alter_seuser_user_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0008\_alter\_seuser\_user\_name module
+--------------------------------------------------------
+
+.. automodule:: seuser.migrations.0008_alter_seuser_user_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0009\_alter\_seuser\_user\_name module
+--------------------------------------------------------
+
+.. automodule:: seuser.migrations.0009_alter_seuser_user_name
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0010\_alter\_seuser\_user\_email module
+---------------------------------------------------------
+
+.. automodule:: seuser.migrations.0010_alter_seuser_user_email
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+seuser.migrations.0011\_auto\_20210620\_0907 module
+---------------------------------------------------
+
+.. automodule:: seuser.migrations.0011_auto_20210620_0907
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: seuser.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:
