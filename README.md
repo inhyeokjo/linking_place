@@ -20,3 +20,5 @@
 김희현
 조인혁
 구태희
+
+![image](https://github.com/inhyeokjo/linking_place/blob/master/se_team3_dir/docs/build/html/index.html)
