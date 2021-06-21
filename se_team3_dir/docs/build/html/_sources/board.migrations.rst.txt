@@ -1,0 +1,21 @@
+board.migrations package
+========================
+
+Submodules
+----------
+
+board.migrations.0001\_initial module
+-------------------------------------
+
+.. automodule:: board.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: board.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:
