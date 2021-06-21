@@ -1,7 +1,15 @@
 from django.db import models
 
-# Create your models here.
+"""
+    사용자에 대한 데이터베이스를 djangodb 라이브러리를 이용하여 구현
+    (djangodb : 클래스를 생성하면 sqlite3를 이용한 데이터베이스 구축을 자동화해주는 라이브러리)
+"""
+
 class Seuser(models.Model):
+    """
+        사용자 이름, 사용자 아이디, 사용자 이메일, 비밀번호,회원 가입 시간,
+        사용자 성별, 사용자 나이, 사용자 주소, 사용자 관심사
+    """
     user_name = models.CharField(max_length=64, verbose_name='사용자명', default="anonymous")
     user_id = models.CharField(max_length=200, verbose_name="사용자 아이디", default="nouser")
     user_email = models.EmailField(max_length=128, verbose_name='사용자이메일', default="email@none.com")

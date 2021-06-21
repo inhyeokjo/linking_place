@@ -3,10 +3,21 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password, check_password  # 비밀번호를 암호화할 때 사용하는 함수
 from .models import Seuser
 
+"""
+    seuser 어플리케이션에 대한 view 모듈로써 로그인과 회원가입에 대한 메소드가 구현되어 있음.
+    함수:
+    login : 로그인
+    register : 
+"""
 
 def login(request):
+    """
+    로그인 요청이 들어왔을 때 페이지를 구성해주는 메소드
     
-
+    parameter : 
+        request : 요청 객체
+    리턴 : render(request, 'login.html', res_data)
+    """
     if request.method == "GET":
         try:
             if request.session['user_id']:
@@ -42,7 +53,11 @@ def login(request):
 
 # Create your views here.
 def register(request):
-
+    """
+    회원가입 요청이 들어왔을 때 화면 구성을 하는 메소드
+    parameter:
+        request : 요청 객체
+    """
     if request.method == 'GET': # url을 입력해서 접근하는 경우
         return render(request, 'register.html')
     elif request.method == "POST": # 버튼을 입력해서 POSt하는 경우
