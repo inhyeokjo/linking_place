@@ -16,10 +16,10 @@
 링킹 플레이스는 이에 대한 해결책을 제공합니다.
 
 팀원 소개
-나영주
-김희현
-조인혁
-구태희
+<p> 173056 나영주 </p>
+<p> 김희현 </p>
+<p>조인혁</p>
+<p>구태희</p>
 
 [문서화 페이지로 이동](https://rawcdn.githack.com/inhyeokjo/linking_place/master/se_team3_dir/docs/build/html/index.html)
 
