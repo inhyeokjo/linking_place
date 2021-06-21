@@ -33,7 +33,7 @@ class Webapp_test(TestCase):
             1) 회원가입이 정삭적으로 수행된 경우 redirection을 통하여
                response의 status code를 302로 반환합니다.
 
-            2) 회원가입 항목 중 비밀번호와 비밀번호 확인 값이 않은 경우 redirection 하지 않고
+            2) 회원가입 항목 중 비밀번호와 비밀번호 확인 값이 동일하지 않은 경우 redirection 하지 않고
                response의 status code를 200으로 반환합니다.
             
             3) 회원가입 항목 중 Null 값이 허용되지 않는 항목이 비어있을 경우 redirection 하지 않고
