@@ -31,6 +31,7 @@ def login(request):
         user_id = request.POST.get('user_id', None)
         password = request.POST.get('password', None)
 
+
         res_data = {}
 
         try:
@@ -39,8 +40,6 @@ def login(request):
             else:
                 seuser = Seuser.objects.get(user_id=user_id)
                 if check_password(password, seuser.password):
-                    # 비밀번호가 일치하는 경우
-                    print("로그인 성공")
                     request.session['user_id'] = seuser.user_id
                     return redirect('/')
                 else:
@@ -71,19 +70,23 @@ def register(request):
             user_age = 0
         user_sex = request.POST.get('user_sex', None)
         user_address = request.POST.get('user_address', None)
-        user_interest = request.POST.get('user_intest', None)
+        user_interest = request.POST.get('user_interest', None)
         
+    
 
         # 비밀번호랑 비밀번호 확인이 다를 경우 에러메시지 출력
         res_data = {}
+
         if password != re_password:
             res_data['error'] = "비밀번호가 다릅니다."
+            return render(request, 'register.html', res_data)
 
         if Seuser.objects.filter(user_id=user_id).exists():
             res_data['error'] = "이미 존재하는 아이디입니다." 
 
         if not (user_name and user_id and password and re_password and user_email and user_sex and user_address and user_age):
             res_data['error'] = '모든 값을 입력해야 합니다.'
+            return render(request, 'register.html', res_data)
 
         else:    
             seuser = Seuser (
@@ -100,5 +103,4 @@ def register(request):
             seuser.save()
             return redirect('/')
        
-        return render(request, 'register.html', res_data)
 
