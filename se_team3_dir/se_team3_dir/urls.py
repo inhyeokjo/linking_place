@@ -16,9 +16,14 @@ Including another URLconf
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
+from se_team3_dir import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('seuser/', include('seuser.urls')),
     path('', include('board.urls'))
 ]
+
+
+

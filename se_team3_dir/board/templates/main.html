@@ -15,9 +15,9 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <a class="navbar-brand font-weight-bolder mr-3" href="main.html"><img src="../../static/img/logo.png" width="150", height="50"></a>
+    <a class="navbar-brand font-weight-bolder mr-3" href="/"><img src="../../static/img/logo.png" width="150", height="50"></a>
     <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon"></span>ß
     </button>
     <div class="collapse navbar-collapse" id="navbarsDefault">
     	<ul class="navbar-nav ml-auto align-items-center">
@@ -43,11 +43,11 @@
     		</button>
     		<div class="collapse navbar-collapse" id="navbarsExplore">
     			<ul class="navbar-nav">
-                    <a class="category_img" href="category.html"><img src="../../static/img/study.png"style="display:block;">스터디룸</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/sing.png"style="display:block;">보컬 연습실</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/cook.png"style="display:block;">쿠킹 스튜디오</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/dance.png" style="display:block;">연습실</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/meeting.png"style="display:block;">회의실</a>
+                    <a class="category_img" href="studyroom"><img src="../../static/img/study.png"style="display:block;"name="스터디룸">스터디룸</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/sing.png"style="display:block;"name="보컬 연습실">보컬 연습실</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/cook.png"style="display:block;"name="쿠킹 스튜디오">쿠킹 스튜디오</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/dance.png" style="display:block;"name="연습실">연습실</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/meeting.png"style="display:block;",name="회의실">회의실</a>
     			</ul>
     		</div>
     		</nav>
@@ -59,11 +59,11 @@
     		</button>
     		<div class="collapse navbar-collapse" id="navbarsExplore">
     			<ul class="navbar-nav">
-                    <a class="category_img" href="main.html"><img src="../../static/img/gym.png"style="display:block;">운동시설</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/camera.png"style="display:block;">촬영 스튜디오</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/cafe.png"style="display:block;">카페</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/concert.png" style="display:block;">공연장</a>
-                    <a class="category_img" href="main.html"><img src="../../static/img/lecture.png"style="display:block;">강의실</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/gym.png"style="display:block;">운동시설</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/camera.png"style="display:block;">촬영 스튜디오</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/cafe.png"style="display:block;">카페</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/concert.png" style="display:block;">공연장</a>
+                    <a class="category_img" href="contents_not_ready"><img src="../../static/img/lecture.png"style="display:block;">강의실</a>
     			</ul>
     		</div>
     		</nav>
@@ -74,139 +74,162 @@
     <div class="container-fluid">
         <h1 class="font-weight-bold title">이런 공간은 어떠신가요?</h1>
     	<div class="row">
+			<div class="card-columns">
 				<div class="card card-pin">
-					<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+					<img class="card-img" src="{{ image1 }}" alt="Card image">
 						<div class="overlay">
 								<h3 class="card-title title">{{ name1 }}</h3>
 							<br>
-								<p style="color : white;text-align:center"> {{desc1}} </p>
+							<p style="color : white;text-align:center">{{ address1 }}</p>
+							<p style="color : white;text-align:center">{{ desc1 }}</p>
+							<p style="color : white;text-align:center">{{ contact1 }}</p>
 							<div class="more">
-							<a href="post.html">
+							<a href="post">
 							<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
 						</div>
 					</div>
 				</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image2 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name2 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc2 }} </p>
+							<p style="color : white;text-align:center">{{ address2 }}</p>
+							<p style="color : white;text-align:center">{{ desc2 }}</p>
+							<p style="color : white;text-align:center">{{ contact2 }}</p>
     						<div class="more">
-							<a href="post.html">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image3 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name3 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc3 }} </p>
+							<p style="color : white;text-align:center">{{ address3 }}</p>
+							<p style="color : white;text-align:center">{{ desc3 }}</p>
+							<p style="color : white;text-align:center">{{ contact3 }}</p>
     						<div class="more">
-							<a href="post.html">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image4 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name4 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc4 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address4 }}</p>
+							<p style="color : white;text-align:center">{{ desc4 }}</p>
+							<p style="color : white;text-align:center">{{ contact4 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image5 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name5 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc5 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address5 }}</p>
+							<p style="color : white;text-align:center">{{ desc5 }}</p>
+							<p style="color : white;text-align:center">{{ contact5 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1483190656465-2c49e54d29f3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7c4d831daffc28f6ce144ae9e44072e2&auto=format&fit=crop&w=500&q=60" alt="Card image">
+    				<img class="card-img" src="{{ image6 }}" alt="Card image">
     				<div class="overlay">
       						<h3 class="card-title title">{{ name6 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc6 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address6 }}</p>
+							<p style="color : white;text-align:center">{{ desc6 }}</p>
+							<p style="color : white;text-align:center">{{ contact6 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image7 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name7 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc7 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address7 }}</p>
+							<p style="color : white;text-align:center">{{ desc7 }}</p>
+							<p style="color : white;text-align:center">{{ contact7 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image8 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name8 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc8 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address8 }}</p>
+							<p style="color : white;text-align:center">{{ desc8 }}</p>
+							<p style="color : white;text-align:center">{{ contact8 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image9 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name9 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc9 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address9 }}</p>
+							<p style="color : white;text-align:center">{{ desc9 }}</p>
+							<p style="color : white;text-align:center">{{ contact9 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
     			<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image10 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name10 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc10 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address10 }}</p>
+							<p style="color : white;text-align:center">{{ desc10 }}</p>
+							<p style="color : white;text-align:center">{{ contact10 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
 				<div class="card card-pin">
-    				<img class="card-img" src="https://images.unsplash.com/photo-1519996521430-02b798c1d881?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=79f770fc1a5d8ff9b0eb033d0f09e15d&auto=format&fit=crop&w=500&q=70" alt="Card image">
+    				<img class="card-img" src="{{ image11 }}" alt="Card image">
   					<div class="overlay">
       						<h3 class="card-title title">{{ name11 }}</h3>
 							<br>
-      						<p style="color : white;text-align:center"> {{ desc11 }} </p>
-    						<div class="more">
-							<a href="post.html">
+							<p style="color : white;text-align:center">{{ address11 }}</p>
+							<p style="color : white;text-align:center">{{ desc11 }}</p>
+							<p style="color : white;text-align:center">{{ contact11 }}</p>    						
+							<div class="more">
+							<a href="post">
     						<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More </a>
     					</div>
     				</div>
     			</div>
-
+			</div>
     		</div>
     	</div>
     </div>
@@ -214,8 +237,8 @@
         
     </main>
 
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="../../static/js/app.js"></script>
+    <script src="../../static/js/theme.js"></script>
     
     <footer class="footer pt-5 pb-5 text-center">
         
