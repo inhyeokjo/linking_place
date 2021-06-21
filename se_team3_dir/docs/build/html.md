@@ -1,1 +1,1 @@
-.
+[asdf](./index.html)
