@@ -21,4 +21,4 @@
 조인혁
 구태희
 
-[html](https://github.com/inhyeokjo/linking_place/blob/master/se_team3_dir/docs/build/html/index.html)
+[html](https://htmlpreview.github.io/?https://github.com/inhyeokjo/linking_place/blob/master/se_team3_dir/docs/build/html/index.html)
