@@ -7,3 +7,4 @@ SE_Project : LINKING SPACE
    board
    manage
    seuser
+   test
