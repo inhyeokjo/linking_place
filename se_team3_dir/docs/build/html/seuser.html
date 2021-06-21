@@ -94,10 +94,12 @@
 <li class="toctree-l2"><a class="reference internal" href="manage.html">manage 모듈</a></li>
 <li class="toctree-l2"><a class="reference internal" href="se_team3_dir.html">se_team3_dir 패키지</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">seuser 패키지</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#seuser-admin-module">seuser.admin module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#seuser-models-module">seuser.models module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#seuser-urls-module">seuser.urls module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#seuser-views-module">seuser.views module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seuser-admin-py">seuser 패키지의 admin.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seuser-models-py">seuser 패키지의 models.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seuser-urls-py">seuser패키지의 urls.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seuser-views-py">seuser 패키지의 views.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">로그인</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">회원가입</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#seuser-tests-module">seuser.tests module</a></li>
 </ul>
 </li>
@@ -174,11 +176,11 @@
             
   <div class="section" id="seuser">
 <h1>seuser 패키지<a class="headerlink" href="#seuser" title="이 표제에 대한 퍼머링크">¶</a></h1>
-<div class="section" id="seuser-admin-module">
-<h2>seuser.admin module<a class="headerlink" href="#seuser-admin-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="seuser-admin-py">
+<h2>seuser 패키지의 admin.py 모듈<a class="headerlink" href="#seuser-admin-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
 <ul class="simple">
-<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>사용자 정보**에 대한 관리자 모듈입니다.</p></li>
-<li><p>사용자 정보에 대한 <a href="#id3"><span class="problematic" id="id4">**</span></a>관리자 페이지**로 기본적으로 사용자 이름, 사용자 아이디, 패스워드를 볼 수 있도록 설정합니다.</p></li>
+<li><p>사용자 정보에 대한 관리자 모듈입니다.</p></li>
+<li><p>사용자 정보에 대한 관리자 페이지로 기본적으로 사용자 이름, 사용자 아이디, 패스워드를 볼 수 있도록 설정합니다.</p></li>
 </ul>
 <p>SeuserAdmin 클래스:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SeuserAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
@@ -191,14 +193,14 @@
 <li><p>새로운 라인</p></li>
 </ul>
 </div>
-<div class="section" id="seuser-models-module">
-<h2>seuser.models module<a class="headerlink" href="#seuser-models-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="seuser-models-py">
+<h2>seuser 패키지의 models.py 모듈<a class="headerlink" href="#seuser-models-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
 <ul class="simple">
 <li><p>seuser 어플리케이션에 필요한 데이터베이스를 클래스화하는 모듈입니다.</p></li>
 <li><p>사용자에 대한 데이터베이스를 djangodb 라이브러리를 이용하여 구현</p></li>
 <li><p>(djangodb : 클래스를 생성하면 sqlite3를 이용한 데이터베이스 구축을 자동화해주는 라이브러리)</p></li>
 </ul>
-<p>Seuser 클래스 (사용자 클래스):</p>
+<p>Seuser 테이블 (사용자 데이터베이스):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Seuser</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">      사용자 이름, 사용자 아이디, 사용자 이메일, 비밀번호,회원 가입 시간,</span>
@@ -224,14 +226,153 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="seuser-urls-module">
-<h2>seuser.urls module<a class="headerlink" href="#seuser-urls-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="seuser-urls-py">
+<h2>seuser패키지의 urls.py 모듈<a class="headerlink" href="#seuser-urls-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>seuser 어플리케이션에서 접근할 수 있는 url목록들을 나열합니다.</p></li>
+<li><p>admin : 관리자 페이지 url</p></li>
+<li><p>seuser : 사용자 관련 url</p></li>
+<li><p>&quot;&quot; : 메인 화면의 url (127.0.0.1:8000)</p></li>
+</ul>
+<p>필요한 라이브러리 import:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django</span> <span class="kn">import</span> <span class="n">urls</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+</pre></div>
 </div>
-<div class="section" id="seuser-views-module">
-<h2>seuser.views module<a class="headerlink" href="#seuser-views-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<p>urlpatterns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+   <span class="n">path</span><span class="p">(</span><span class="s1">&#39;seuser/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;seuser.urls&#39;</span><span class="p">)),</span>
+   <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;board.urls&#39;</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="seuser-views-py">
+<h2>seuser 패키지의 views.py 모듈<a class="headerlink" href="#seuser-views-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>장고에서 views는 로직(구현)을 담당합니다.</p></li>
+<li><p>로그인 기능과 회원 가입 기능이 구현되었습니다.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>로그인<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>로그인은 사용자가 존재하는 아이디와 그에 해당하는 비밀번호를 정상적으로 입력하면 수행됩니다.</p></li>
+<li><p>사용자가 로그인을 수행하면 세션(쿠키)에 값이 저장되어 로그아웃을 하기 전까지 로그인 상태가 유지됩니다.</p></li>
+</ul>
+<p>로그인 코드입니다.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   로그인 요청이 들어왔을 때 페이지를 구성해주는 메소드</span>
+
+<span class="sd">   parameter :</span>
+<span class="sd">      request : 요청 객체</span>
+<span class="sd">   리턴 : render(request, &#39;login.html&#39;, res_data)</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+      <span class="k">try</span><span class="p">:</span>
+         <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]:</span>
+            <span class="k">del</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+      <span class="k">except</span><span class="p">:</span>
+         <span class="k">pass</span>
+
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login.html&#39;</span><span class="p">)</span>
+
+   <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+      <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+      <span class="n">res_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+      <span class="k">try</span><span class="p">:</span>
+         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">user_id</span> <span class="ow">and</span> <span class="n">password</span><span class="p">):</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;모든 값을 입력해야 합니다.&quot;</span>
+         <span class="k">else</span><span class="p">:</span>
+            <span class="n">seuser</span> <span class="o">=</span> <span class="n">Seuser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">seuser</span><span class="o">.</span><span class="n">password</span><span class="p">):</span>
+               <span class="c1"># 비밀번호가 일치하는 경우</span>
+               <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;로그인 성공&quot;</span><span class="p">)</span>
+               <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seuser</span><span class="o">.</span><span class="n">user_id</span>
+               <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+               <span class="c1">#비밀번호가 틀린 경우</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;비밀번호가 틀렸습니다.&quot;</span>
+      <span class="k">except</span><span class="p">:</span>
+         <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;!!존재하지 않는 아이디입니다.!!&quot;</span>
+
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;login.html&#39;</span><span class="p">,</span> <span class="n">res_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>회원가입<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>다음은 회원 가입 기능입니다.</p></li>
+<li><p>사용자는 회원 가입을 할 때 모든 정보를 입력하고 기존에 가입된 회원이 아니라면 회원 가입이 수행됩니다.</p></li>
+<li><p>또한 비밀번호와 비밀번호 확인 란이 동일한 문자열을 입력해야 합니다.</p></li>
+</ul>
+<p>회원가입에 대한 코드입니다.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   회원가입 요청이 들어왔을 때 화면 구성을 하는 메소드</span>
+<span class="sd">   parameter:</span>
+<span class="sd">      request : 요청 객체</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;GET&#39;</span><span class="p">:</span> <span class="c1"># url을 입력해서 접근하는 경우</span>
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;register.html&#39;</span><span class="p">)</span>
+
+   <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span> <span class="c1"># 버튼을 입력해서 POSt하는 경우</span>
+      <span class="n">user_name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">user_email</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">re_password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;re-password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">user_age</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_age&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">user_age</span><span class="p">:</span>
+            <span class="n">user_age</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="n">user_sex</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_sex&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">user_address</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_address&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+      <span class="n">user_interest</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_intest&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+
+      <span class="c1"># 비밀번호랑 비밀번호 확인이 다를 경우 에러메시지 출력</span>
+      <span class="n">res_data</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="n">re_password</span><span class="p">:</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;비밀번호가 다릅니다.&quot;</span>
+
+      <span class="k">if</span> <span class="n">Seuser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;이미 존재하는 아이디입니다.&quot;</span>
+
+      <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">user_name</span> <span class="ow">and</span> <span class="n">user_id</span> <span class="ow">and</span> <span class="n">password</span> <span class="ow">and</span> <span class="n">re_password</span> <span class="ow">and</span> <span class="n">user_email</span> <span class="ow">and</span> <span class="n">user_sex</span> <span class="ow">and</span> <span class="n">user_address</span> <span class="ow">and</span> <span class="n">user_age</span><span class="p">):</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;모든 값을 입력해야 합니다.&#39;</span>
+
+      <span class="k">else</span><span class="p">:</span>
+            <span class="n">seuser</span> <span class="o">=</span> <span class="n">Seuser</span> <span class="p">(</span>
+               <span class="n">user_name</span><span class="o">=</span><span class="n">user_name</span><span class="p">,</span>
+               <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+               <span class="n">password</span><span class="o">=</span><span class="n">make_password</span><span class="p">(</span><span class="n">password</span><span class="p">),</span>  <span class="c1"># 비밀번호를 암호화하여 저장</span>
+               <span class="n">user_email</span><span class="o">=</span><span class="n">user_email</span><span class="p">,</span>
+               <span class="n">user_sex</span><span class="o">=</span><span class="n">user_sex</span><span class="p">,</span>
+               <span class="n">user_address</span><span class="o">=</span><span class="n">user_address</span><span class="p">,</span>
+               <span class="n">user_interest</span><span class="o">=</span><span class="n">user_interest</span><span class="p">,</span>
+               <span class="n">user_age</span><span class="o">=</span><span class="n">user_age</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">seuser</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;register.html&#39;</span><span class="p">,</span> <span class="n">res_data</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="seuser-tests-module">
 <h2>seuser.tests module<a class="headerlink" href="#seuser-tests-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
 </div>
 </div>
 

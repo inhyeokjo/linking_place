@@ -51,7 +51,7 @@ def login(request):
 
         return render(request, 'login.html', res_data)
 
-# Create your views here.
+
 def register(request):
     """
     회원가입 요청이 들어왔을 때 화면 구성을 하는 메소드

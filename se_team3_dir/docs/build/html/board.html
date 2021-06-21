@@ -92,11 +92,26 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">SE_Project : LINKING SPACE</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">board 패키지</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#board-admin-module">board.admin module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#board-models-module">board.models module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#board-urls-module">board.urls module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#board-views-module">board.views module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#board-tests-module">board.tests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#board-admin-py">board패키지의 admin.py 모듈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#place-address-place-category">관리자는 장소의 주소(place_address), 장소의 카테고리(place_category)를 볼 수 있습니다.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">관리자는 예약 데이터베이스에서 예약한 사용자, 예약 시간을 볼 수 있습니다.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">관리자는 리뷰 데이터베이스에서 리뷰를 남긴 사용자와 리뷰 텍스트를 볼 수 있습니다.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#board-models-py">board패키지의 models.py 모듈</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#djangodb">장소, 예약, 리뷰에 대한 데이터베이스를 djangodb 라이브러리를 이용하여 구현해주는 모듈</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">장소 테이블</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">예약 테이블</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">리뷰 테이블</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#board-urls-py">board 패키지의 urls.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#board-views-py">board패키지의 views.py 모듈</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">주화면 보이기 기능</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">카테고리별 화면 보이기 기능</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">준비되지 않은 컨텐츠, 장소 세부화면 보이기 기능은 준비중입니다.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="manage.html">manage 모듈</a></li>
@@ -175,29 +190,251 @@
             
   <div class="section" id="board">
 <h1>board 패키지<a class="headerlink" href="#board" title="이 표제에 대한 퍼머링크">¶</a></h1>
-<div class="section" id="board-admin-module">
-<h2>board.admin module<a class="headerlink" href="#board-admin-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
 <ul class="simple">
-<li><p>여기에 board admin 모듈에 대한 설명을 작성하세요.</p></li>
+<li><p>board는 메인화면, 카테고리별 화면에 대한 관리를 수행합니다.</p></li>
+<li><p>메인화면은 여러 카테고리의 페이지를 균형있게 보여줍니다.</p></li>
+<li><p>카테고리별 화면은 특정 카테고리에 대한 목록만 보여줍니다.</p></li>
+</ul>
+<div class="section" id="board-admin-py">
+<h2>board패키지의 admin.py 모듈<a class="headerlink" href="#board-admin-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>board의 admin은 관리자페이지에서 보여줄 데이터베이스의 종류를 정의합니다.</p></li>
+</ul>
+<div class="section" id="place-address-place-category">
+<h3>관리자는 장소의 주소(place_address), 장소의 카테고리(place_category)를 볼 수 있습니다.<a class="headerlink" href="#place-address-place-category" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>장소 관리:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">PlaceAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+   <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;place_address&#39;</span><span class="p">,</span> <span class="s1">&#39;place_category&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>관리자는 예약 데이터베이스에서 예약한 사용자, 예약 시간을 볼 수 있습니다.<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>예약 관리:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ReservationAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+   <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;reservation_time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>관리자는 리뷰 데이터베이스에서 리뷰를 남긴 사용자와 리뷰 텍스트를 볼 수 있습니다.<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>리뷰 관리:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ReviewAdmin</span><span class="p">(</span><span class="n">admin</span><span class="o">.</span><span class="n">ModelAdmin</span><span class="p">):</span>
+   <span class="n">list_display</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;review_text&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="board-models-py">
+<h2>board패키지의 models.py 모듈<a class="headerlink" href="#board-models-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="djangodb">
+<h3>장소, 예약, 리뷰에 대한 데이터베이스를 djangodb 라이브러리를 이용하여 구현해주는 모듈<a class="headerlink" href="#djangodb" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<p>(djangodb : 클래스를 생성하면 sqlite3를 이용한 데이터베이스 구축을 자동화해주는 라이브러리)</p>
+</div>
+<div class="section" id="id3">
+<h3>장소 테이블<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<ul class="simple">
+<li><p>장소 테이블에는 장소 주소, 장소 카테고리, 장소 연락처, 장소 이름, 장소 옵션, 장소 설명, 장소 이미지 컬럼이 존재합니다.</p></li>
+<li><p>장고를 이용한 장소 데이터 베이스 구현은 다음과 같습니다.</p></li>
+</ul>
+<p>Place:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Place</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   장소 주소, 장소 카테고리, 장소 연락처, 장소 이름, 장소 옵션, 장소 설명, 장소 이미지</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">place_address</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+   <span class="n">place_category</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+   <span class="n">place_contact</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+   <span class="n">place_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+   <span class="n">place_options</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+   <span class="n">place_description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+   <span class="n">place_image</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">upload_to</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;linking_space_places&#39;</span>
+      <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 장소&#39;</span>
+      <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 장소&#39;</span>
+
+   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">place_name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>예약 테이블<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<ul class="simple">
+<li><p>예약 테이블에는 예약한 사용자, 예약 장소, 예약 시간, 지불 정보 칼럼이 존재합니다.</p></li>
+<li><p>장고를 이용한 예약 데이터 베이스 구현은 다음과 같습니다.</p></li>
+</ul>
+<p>Reservation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Reservation</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   예약한 사용자, 예약 장소, 예약 시간, 지불 정보</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;seuser.Seuser&#39;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+   <span class="n">place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;board.Place&#39;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+   <span class="n">reservation_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+   <span class="n">payment_info</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reservation_time</span>
+
+   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;linking_space_reservations&#39;</span>
+      <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 예약&#39;</span>
+      <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 예약&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>리뷰 테이블<a class="headerlink" href="#id5" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<ul class="simple">
+<li><p>리뷰 테이블에는 리뷰를 작성한 사용자, 리뷰한 장쇼, 리뷰 작성 시간, 리뷰 텍스트 칼럼이 존재합니다.</p></li>
+<li><p>장고를 이용한 리뷰 데이터 베이스 구현은 다음과 같습니다.</p></li>
+</ul>
+<p>Review:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Review</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   리뷰를 작성한 사용자, 리뷰한 장소, 리뷰 작성 시간, 리뷰 텍스트</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;seuser.Seuser&#39;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+   <span class="n">place</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s1">&#39;board.Place&#39;</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+   <span class="n">review_written_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+   <span class="n">review_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+   <span class="c1"># review_image = models.ImageField()</span>
+
+   <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+      <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;linking_space_reviews&#39;</span>
+      <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 리뷰&#39;</span>
+      <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;링킹 스페이스 리뷰&#39;</span>
+
+   <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">review_text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="board-urls-py">
+<h2>board 패키지의 urls.py 모듈<a class="headerlink" href="#board-urls-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>board 어플리케이션에서 접근할 수 있는 url목록들을 나열합니다.</p></li>
+<li><p>studyroom : 스터디룸 카테고리에 해당하는 장소들만 보여주는 페이지</p></li>
+<li><p>contents_not_ready : 아직 준비중인 기능을 표현하는 페이지로 리뷰 작성 기능, 예약 기능은 아직 구현하지 않았습니다.</p></li>
+<li><p>&quot;&quot; : 메인 화면의 url (127.0.0.1:8000)</p></li>
+</ul>
+<p>urlpatterns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">main_frame</span><span class="p">),</span>
+   <span class="n">path</span><span class="p">(</span><span class="s2">&quot;studyroom&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">category_studyroom</span><span class="p">),</span>
+   <span class="n">path</span><span class="p">(</span><span class="s2">&quot;contents_not_ready&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">contents_not_ready</span><span class="p">),</span>
+   <span class="n">path</span><span class="p">(</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">post</span><span class="p">),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="board-views-py">
+<h2>board패키지의 views.py 모듈<a class="headerlink" href="#board-views-py" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<ul class="simple">
+<li><p>장고에서 views는 로직(구현)을 담당합니다.</p></li>
+<li><p>주화면 보이기 기능, 카테고리별 화면 보이기 기능이 구현되었습니다.</p></li>
 </ul>
 </div>
-<div class="section" id="board-models-module">
-<h2>board.models module<a class="headerlink" href="#board-models-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="id6">
+<h2>주화면 보이기 기능<a class="headerlink" href="#id6" title="이 표제에 대한 퍼머링크">¶</a></h2>
 <ul class="simple">
-<li><p>여기에 board.models 모듈에 대한 설명을 작성하세요.</p></li>
+<li><p>주화면에는 선택할 수 있는 카테고리의 목록과, 추천하는 장소의 목록을 보여줍니다.</p></li>
+<li><p>화면 내에서 로그인과 회원가입 버튼을 클릭할 수 있습니다.</p></li>
+<li><p>카테고리 버튼을 클릭하면 해당 카테고리별 화면으로 전환(redirect)됩니다.</p></li>
 </ul>
+<p>구현:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main_frame</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   메인 화면을 구성하는 메소드</span>
+<span class="sd">   파라미터:</span>
+<span class="sd">      request : 요청 객체</span>
+<span class="sd">   리턴 : render(request, main.html, res_data)</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+      <span class="n">res_data</span> <span class="o">=</span> <span class="p">{}</span>
+
+      <span class="n">places_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;강의실&#39;</span><span class="p">,</span> <span class="s1">&#39;공연장&#39;</span><span class="p">,</span> <span class="s1">&#39;운동시설&#39;</span><span class="p">,</span> <span class="s1">&#39;카페&#39;</span><span class="p">,</span> <span class="s1">&#39;쿠킹 스튜디오&#39;</span><span class="p">,</span> <span class="s1">&#39;스터디룸&#39;</span><span class="p">]</span>
+
+      <span class="n">place_instances</span> <span class="o">=</span> <span class="n">Place</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+      <span class="c1"># 장소를 카테고리별로 분류</span>
+      <span class="n">place_categorical_dict</span> <span class="o">=</span> <span class="p">{}</span>                     <span class="c1"># 키 : 장소 카테고리, value : 장소 객체 리스트</span>
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">places_list</span><span class="p">)):</span>               <span class="c1"># 카테고리 6개이므로 6번 반복</span>
+            <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">places_list</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+      <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">place_instances</span><span class="o">.</span><span class="n">count</span><span class="p">()):</span>        <span class="c1"># 모든 장소를 불러와서 카테고리별로 분류</span>
+            <span class="k">for</span> <span class="n">place</span> <span class="ow">in</span> <span class="n">places_list</span><span class="p">:</span>
+               <span class="k">if</span> <span class="n">place_instances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_category&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">place</span><span class="p">:</span>
+                  <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">place_instances</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+      <span class="c1"># 화면 구성에 필요한 정보들 (장소 이름, 이미지, 세부정보, 주소, 연락처)를 전달하기 위해서 res_data 딕셔너리에 추가</span>
+      <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">place</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">places_list</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_name&#39;</span><span class="p">]</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;../static/img/&quot;</span> <span class="o">+</span> <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_image&#39;</span><span class="p">]</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_description&#39;</span><span class="p">]</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;address&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_address&#39;</span><span class="p">]</span>
+               <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;contact&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place_categorical_dict</span><span class="p">[</span><span class="n">place</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;place_contact&#39;</span><span class="p">]</span>
+               <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+      <span class="n">user_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>        <span class="c1"># 세션에 로그인한 사용자 정보가 있다면 로그인된 상태로 표시</span>
+      <span class="k">if</span> <span class="n">user_id</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">Seuser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;님 안녕하세요!&quot;</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;register&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;logout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;로그아웃&quot;</span>
+
+      <span class="k">else</span><span class="p">:</span>                                           <span class="c1"># 세션에 로그인한 사용자 정보가 없다면 로그인 또는 회원가입 할 수 있도록 표시</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;login&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;로그인&quot;</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;register&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;회원가입&quot;</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;logout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;main.html&#39;</span><span class="p">,</span> <span class="n">res_data</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="board-urls-module">
-<h2>board.urls module<a class="headerlink" href="#board-urls-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2>카테고리별 화면 보이기 기능<a class="headerlink" href="#id7" title="이 표제에 대한 퍼머링크">¶</a></h2>
 <ul class="simple">
-<li><p>여기에 board.urls 모듈에 대한 설명을 작성하세요.</p></li>
+<li><p>현재 스터디룸 카테고리만 선택합니다. (나머지 카테고리들은 데이터를 추가할 시 가능합니다.</p></li>
+<li><p>장소 테이블에서 카테고리 칼럼이 스터디룸 장소만 화면을 구성합니다.</p></li>
 </ul>
+<p>구현:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">category_studyroom</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+   <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">   카테고리별 화면을 구성하는 메소드</span>
+<span class="sd">   파라미터 :</span>
+<span class="sd">      request : 요청 객체</span>
+<span class="sd">   리턴 : render(request, category, res_data)</span>
+<span class="sd">   &quot;&quot;&quot;</span>
+   <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+      <span class="n">res_data</span> <span class="o">=</span> <span class="p">{}</span>
+      <span class="n">place_instances</span> <span class="o">=</span> <span class="n">Place</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">place_category</span><span class="o">=</span><span class="s2">&quot;스터디룸&quot;</span><span class="p">)</span>
+
+      <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">place</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">place_instances</span><span class="p">):</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place</span><span class="o">.</span><span class="n">place_name</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;address&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place</span><span class="o">.</span><span class="n">place_address</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;image&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;../static/img/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">place</span><span class="o">.</span><span class="n">place_image</span><span class="p">)</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;description&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place</span><span class="o">.</span><span class="n">place_description</span>
+            <span class="n">res_data</span><span class="p">[</span><span class="s1">&#39;contact&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">place</span><span class="o">.</span><span class="n">place_contact</span>
+
+      <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;studyroom.html&#39;</span><span class="p">,</span> <span class="n">res_data</span><span class="p">)</span>
+
+   <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+      <span class="k">pass</span>
+</pre></div>
 </div>
-<div class="section" id="board-views-module">
-<h2>board.views module<a class="headerlink" href="#board-views-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<div class="section" id="id8">
+<h3>준비되지 않은 컨텐츠, 장소 세부화면 보이기 기능은 준비중입니다.<a class="headerlink" href="#id8" title="이 표제에 대한 퍼머링크">¶</a></h3>
+<hr class="docutils" />
 </div>
-<div class="section" id="board-tests-module">
-<h2>board.tests module<a class="headerlink" href="#board-tests-module" title="이 표제에 대한 퍼머링크">¶</a></h2>
 </div>
 </div>
 

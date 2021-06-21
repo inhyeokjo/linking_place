@@ -17,8 +17,7 @@ Including another URLconf
 from django import urls
 from django.contrib import admin
 from django.urls import path, include
-from se_team3_dir import settings
-from django.conf.urls.static import static
+
 
 """
     접근할 수 있는 url 목록을 나열합니다.
