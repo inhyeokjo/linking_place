@@ -102,7 +102,7 @@
 ----------------------------
 
     cd ./se_team3_dir
-    python3 manage.py runserver
+    python manage.py runserver
 
 해당 코드를 실행한 뒤에 
 **URL : 127.0.0.1:8000**
