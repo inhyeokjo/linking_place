@@ -101,7 +101,7 @@
 2. **서버 실행하기(runserver)**
 ----------------------------
 
-    cd linking_place/se_team3_dir
+    cd ./se_team3_dir
     python3 manage.py runserver
 
 해당 코드를 실행한 뒤에 
