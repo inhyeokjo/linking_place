@@ -120,7 +120,6 @@ Linking place의 사용자와 장소에 대한 데이터베이스를 확인하�
 - id : apercent1
 - pw : 1234
 
-로그인을 하면 다음과 같은 화면을 볼 수 있습니다.
-![image](https://user-images.githubusercontent.com/45136186/123040372-9f3b9b80-d42e-11eb-94c4-ca23d9a9d3bc.png)
-
-
+<p align="center" style="font-size:15px"> 로그인을 하면 다음과 같은 화면을 볼 수 있습니다.
+<p align="center"><img src="https://user-images.githubusercontent.com/45136186/123040372-9f3b9b80-d42e-11eb-94c4-ca23d9a9d3bc.png" width="60%" height="50%">
+</p>
