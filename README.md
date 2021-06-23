@@ -110,11 +110,8 @@
 
 3. **단위 테스트 테스팅하기**
 ----------------------------
-새로운 터미널 열기 (runserver가 실행된 상태여야 합니다.)
-<br>
-   python manage.py test
-   
-
+    새로운 터미널 열기 (runserver가 실행된 상태여야 합니다.)
+    python manage.py test
 
 
 Appendix : 데이터 베이스 확인 방법 (관리자 페이지)
